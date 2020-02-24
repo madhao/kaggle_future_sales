@@ -1,0 +1,24 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in the kedro docs under `Accessing data`
+# You can access the kedro docs by running `kedro docs`
+
+item_categories:
+  type: CSVLocalDataSet
+  filepath: data/01_raw/item_categories.csv
+
+items:
+  type: CSVLocalDataSet
+  filepath: data/01_raw/items.csv
+
+sales_train:
+  type: CSVLocalDataSet
+  filepath: data/01_raw/sales_train.csv
+
+shops:
+  type: CSVLocalDataSet
+  filepath: data/01_raw/shops.csv
+
+test:
+  type: CSVLocalDataSet
+  filepath: data/01_raw/test.csv
