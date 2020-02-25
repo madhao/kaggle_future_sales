@@ -3,22 +3,22 @@
 # Documentation for this file format can be found in the kedro docs under `Accessing data`
 # You can access the kedro docs by running `kedro docs`
 
-item_categories:
+raw_item_categories:
   type: CSVLocalDataSet
   filepath: data/01_raw/item_categories.csv
 
-items:
+raw_items:
   type: CSVLocalDataSet
   filepath: data/01_raw/items.csv
 
-sales_train:
+raw_sales_train:
   type: CSVLocalDataSet
   filepath: data/01_raw/sales_train.csv
 
-shops:
+raw_shops:
   type: CSVLocalDataSet
   filepath: data/01_raw/shops.csv
 
-test:
+raw_test:
   type: CSVLocalDataSet
   filepath: data/01_raw/test.csv
