@@ -22,3 +22,11 @@ raw_shops:
 raw_test:
   type: CSVLocalDataSet
   filepath: data/01_raw/test.csv
+
+prm_train:
+  type: CSVLocalDataSet
+  filepath: data/03_primary/train.csv
+
+prm_test:
+  type: CSVLocalDataSet
+  filepath: data/03_primary/test.csv

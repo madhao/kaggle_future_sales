@@ -29,7 +29,8 @@
 
 from typing import Dict
 
-from kedro.pipeline import Pipeline
+from kedro.pipeline import Pipeline, node
+
 # from future_sales.pipelines import data_engineering as de
 # from future_sales.pipelines import data_science as ds
 
@@ -49,6 +50,27 @@ from kedro.pipeline import Pipeline
 #
 # $ kedro run
 
+from future_sales.nodes.primary import build_primary, build_primary_test
+
+pipeline = Pipeline(
+    [
+        node(
+            func=build_primary,
+            inputs=["raw_sales_train", "raw_item_categories", "raw_items", "raw_shops"],
+            outputs="prm_train",
+            name="prm_train",
+            tags=["prm"],
+        ),
+        node(
+            func=build_primary_test,
+            inputs=["raw_test", "raw_item_categories", "raw_items", "raw_shops"],
+            outputs="prm_test",
+            name="prm_test",
+            tags=["prm"],
+        ),
+    ],
+)
+
 
 def create_pipelines(**kwargs) -> Dict[str, Pipeline]:
     """Create the project's pipeline.
@@ -61,7 +83,4 @@ def create_pipelines(**kwargs) -> Dict[str, Pipeline]:
 
     """
 
-    return {
-        "__default__": Pipeline([])
-    }
-
+    return {"__default__": Pipeline([pipeline])}
